@@ -201,7 +201,7 @@ GROUP BY U.user_id, U.name;
 
 select * from  vw_AvgPayment_PerUser
 
--- 1️3 --  Month with Highest Total Cost per Utility
+-- 13 --  Month with Highest Total Cost per Utility
 CREATE VIEW vw_HighestCostMonth  AS 
 SELECT format(HC.consumption_date, 'yyyy-MM') as months ,TR.utility ,SUM(HC.total_cost) AS total_cost
 FROM HouseholdConsumption HC
@@ -209,4 +209,5 @@ JOIN TariffRates TR ON HC.tariff_id = TR.tariff_id
 GROUP BY FORMAT(HC.consumption_date , 'yyyy-MM') , TR.utility
 
 SELECT * FROM vw_HighestCostMonth ;
+
 
